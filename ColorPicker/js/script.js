@@ -1,1 +1,1 @@
-console.log('Hello, world!');
+console.log(document.querySelector('#colorPicker').value);
