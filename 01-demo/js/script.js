@@ -71,3 +71,19 @@ thumbImages.forEach((thumbImage) => {
     mainImage.animate({opacity: [0, 1]}, 500);
   });
 });
+
+
+// 監視対象が範囲内に現れたら実行する動作
+const animateFade = () => {
+  console.log('ふわっ');
+};
+
+// 監視設定
+const fadeObserver = new IntersectionObserver(animateFade);
+
+// /fadeinを監視するように指示
+const fadeElements = document.querySelectorAll('.fadein');
+fadeElements.forEach((fadeElement) => {
+  fadeObserver.observe(fadeElement);
+});
+
