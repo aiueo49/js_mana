@@ -74,8 +74,24 @@ thumbImages.forEach((thumbImage) => {
 
 
 // 監視対象が範囲内に現れたら実行する動作
-const animateFade = () => {
-  console.log('ふわっ');
+const animateFade = (entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      // console.log(entry.target);
+      entry.target.animate(
+        {
+          opacity: [0, 1],
+          filter: ['blur(.4rem)', 'blur(0)'],
+          translate: ['0 4rem', 0],
+        },
+        {
+          duration: 2000,
+          easing: 'ease',
+          fill: 'forwards',
+        }
+      );
+    }
+  });
 };
 
 // 監視設定
