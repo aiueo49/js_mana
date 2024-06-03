@@ -3,6 +3,7 @@
 ================================================== */
 const loadingAreaGrey = document.querySelector('#loading');
 const loadingAreaGreen = document.querySelector('#loading-screen');
+const loadingText = document.querySelector('#loading p');
 
 window.addEventListener('load', () => {
   // ローディング中（グレースクリーン） 
@@ -27,6 +28,25 @@ window.addEventListener('load', () => {
     {
       duration: 2000,
       delay: 800,
+      easing: 'ease',
+      fill: 'forwards',
+    }
+  );
+
+  // ローディング中テキスト
+  loadingText.animate(
+    [
+      {
+        opacity: 1,
+        offset: 0.8, // 0.8秒後に開始
+      },
+      {
+        opacity: 0,
+        offset: 1, // 1秒後に終了
+      },
+    ],
+    {
+      duration: 1200,
       easing: 'ease',
       fill: 'forwards',
     }
